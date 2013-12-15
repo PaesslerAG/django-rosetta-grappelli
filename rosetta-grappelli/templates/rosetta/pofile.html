@@ -30,7 +30,7 @@
 <nav class="" id="grp-breadcrumbs">
     <header style="display:none"><h1>Breadcrumbs</h1></header>
     <ul class="grp-horizontal-list">
-        <li><a href="/admin/">{% trans "Home" %}</a></li>
+        <li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></li>
         <li><a href="{% url 'rosetta-pick-file' %}">Rosetta</a></li>
         <li>{{ rosetta_i18n_lang_name }}</li>
         <li>{{ rosetta_i18n_app|title }}</li>
