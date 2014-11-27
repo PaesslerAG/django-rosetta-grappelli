@@ -68,7 +68,7 @@
                         </li>
                         {% if not needs_pagination %}
                         <li class="grp-results">
-                            <a href="?" class="total">
+                            <a href="?filter=all" class="total">
                                 {% blocktrans with counter=rosetta_i18n_pofile|length %}{{ counter }} total{% endblocktrans %}
                             </a>
                         </li>
@@ -213,7 +213,7 @@
                         </li>
                         {% if not needs_pagination %}
                         <li class="grp-results">
-                            <a href="?" class="total">
+                            <a href="?filter=all" class="total">
                                 {% blocktrans with counter=rosetta_i18n_pofile|length %}{{ counter }} total{% endblocktrans %}
                             </a>
                         </li>
