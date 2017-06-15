@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: testapp
+Version: 0.0.0
+Summary: A simple test application to test rosetta-grappelli
+Home-page: https://github.com/belugame/django-rosetta-grappelli
+Author: Martin Bauer
+Author-email: info@beluga.me
+License: BSD
+Description: A simple test application to test rosetta-grappelli
+Keywords: django-rosetta-grappelli
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 1.8
+Classifier: Framework :: Django :: 1.9
+Classifier: Framework :: Django :: 1.10
+Classifier: Framework :: Django :: 1.11

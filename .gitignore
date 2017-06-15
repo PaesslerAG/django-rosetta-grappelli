@@ -1,3 +1,7 @@
 build
 dist
 django_rosetta_grappelli2.egg-info
+.tox
+*.pyc
+pip-list
+readme-errors

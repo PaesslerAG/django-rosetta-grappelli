@@ -1,0 +1,14 @@
+[run]
+parallel = True
+source =
+    rosetta-grappelli
+
+[report]
+fail_under = 100
+include = *.py
+omit =
+    */migrations/*
+
+[html]
+title = django-rosetta-grappelli code coverage
+directory = htmlcov
