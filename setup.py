@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'django-rosetta>=0.6.5',
-        'Django>=1.5,<1.9',
+        'Django>=1.8',
     ],
     include_package_data=True,
 )

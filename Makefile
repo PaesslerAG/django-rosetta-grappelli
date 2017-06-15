@@ -71,4 +71,4 @@ docs:
 	cat ${outfile}
 	test 0 -eq `cat ${outfile} | wc -l`
 	${GET_VERSION_COMMAND}  # can obtain version number - if not, have an explicit error
-	#grep "^[*] $(shell ${GET_VERSION_COMMAND} | sed "s/-[^.-]\+$$//")\>" README.rst  # ensure we have written the release notes
+	grep "^[*] $(shell ${GET_VERSION_COMMAND} | sed "s/-[^.-]\+$$//")\>" README.rst  # ensure we have written the release notes
