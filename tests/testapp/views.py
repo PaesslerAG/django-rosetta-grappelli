@@ -8,7 +8,6 @@ class PathIsTemplateNameQueryStringContextView(TemplateView):
             PathIsTemplateNameQueryStringContextView, self).get_context_data(
                 **kwargs)
         context.update(self.request.GET)
-        print(context)
         return context
 
     def get_template_names(self):
