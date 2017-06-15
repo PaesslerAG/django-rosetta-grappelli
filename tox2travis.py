@@ -7,6 +7,7 @@ class ToxToTravis:
 
     def __init__(self, cwd):
         self.cwd = cwd
+        self.has_lint = False
 
     def parse_tox(self):
         proc = subprocess.Popen(
@@ -19,7 +20,16 @@ class ToxToTravis:
         djangos = set([])
         tox_py_to_djangos = {}
         for tox_line in self.tox_lines:
-            py, env = tox_line.split('-')
+            try:
+                py, env = tox_line.split('-')
+            except ValueError:
+                if tox_line == 'lint':
+                    self.has_lint = True
+                else:
+                    error_msg = \
+                        '# Could not handle tox environment {}, ' \
+                        'adjust this script to continue'
+                    raise ValueError(error_msg.format(tox_line))
             tox_pys.add(py)
             djangos.add(env)
             tox_py_to_djangos.setdefault(py, [])
@@ -57,7 +67,9 @@ class ToxToTravis:
             '  include:',
         ]
         for tox_py, djangos in self.tox_py_to_djangos.items():
-            tox_envs_gen = ('-'.join((tox_py, d)) for d in djangos)
+            tox_envs_gen = list('-'.join((tox_py, d)) for d in djangos)
+            if tox_py == 'py34' and self.has_lint:
+                tox_envs_gen += ['lint']
             item = [
                 '    - python: "%s"' % self.tox2travis_py[tox_py],
                 '      env: TOX_ENVS=%s' % ','.join(tox_envs_gen),
