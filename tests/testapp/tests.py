@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.test import TestCase
-from urllib import urlencode
+from django.utils.six.moves.urllib.parse import urlencode
 
 
 class RenderingBaseTemplateRegressionTestCase(TestCase):
