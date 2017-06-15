@@ -1,8 +1,0 @@
-testapp/__init__.py
-testapp/models.py
-testapp/urls.py
-testapp.egg-info/PKG-INFO
-testapp.egg-info/SOURCES.txt
-testapp.egg-info/dependency_links.txt
-testapp.egg-info/not-zip-safe
-testapp.egg-info/top_level.txt
