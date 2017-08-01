@@ -33,6 +33,8 @@ That's it
 Release Notes
 =============
 
+* 1.2.1 - fix template incompabilities for Django >1.8
+
 * 1.2 - support current Django versions
 
   * drops support for Django 1.5, 1.6,  and 1.7
