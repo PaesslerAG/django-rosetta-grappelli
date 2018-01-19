@@ -15,8 +15,8 @@ setup(
     url="https://github.com/belugame/django-rosetta-grappelli",
     packages=find_packages(),
     install_requires=[
-        'django-rosetta>=0.6.5',
-        'Django>=1.8',
+        'django-rosetta>=0.8.1',
+        'Django>=1.8, <2.1',
     ],
     include_package_data=True,
 )

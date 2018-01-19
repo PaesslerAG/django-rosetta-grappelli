@@ -15,7 +15,7 @@ All credits should go to **Haineault.com** for creating grappelli-fit
 
 Installation
 ============
-
+Install via pip `pip install django-rosetta-grappelli2`
 Add rosetta-grappelli **before** `rosetta` in your installed apps:
   ::
 
@@ -32,6 +32,10 @@ That's it
 
 Release Notes
 =============
+
+* 1.3 - support current Django versions
+
+  * drops support for django-rosetta 0.7.x and below
 
 * 1.2 - support current Django versions
 
