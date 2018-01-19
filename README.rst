@@ -2,6 +2,9 @@
 Django-Rosetta-Grappelli
 ========================
 
+.. image:: https://travis-ci.org/PaesslerAG/django-rosetta-grappelli.svg?branch=master
+    :target: https://travis-ci.org/PaesslerAG/django-rosetta-grappelli
+
 Compatibility template for rosetta when grappelli is installed
 
 **Note:** As of Jan 2017 a new maintainer took over and a new pip package had to be created for it. The releases
