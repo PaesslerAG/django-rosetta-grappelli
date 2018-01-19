@@ -10,7 +10,7 @@
     <header style="display:none"><h1>Breadcrumbs</h1></header>
     <ul class="grp-horizontal-list">
         <li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></li>
-        <li> <a href="{% url 'rosetta-pick-file' %}">Rosetta</a></li>
+        <li> <a href="{% url 'rosetta-file-list' po_filter='project' %}">Rosetta</a></li>
         <li>{% trans "Language selection" %}</li>
     </ul>
 </nav>

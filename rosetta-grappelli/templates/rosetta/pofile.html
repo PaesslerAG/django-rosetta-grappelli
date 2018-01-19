@@ -30,7 +30,7 @@
     <header style="display:none"><h1>Breadcrumbs</h1></header>
     <ul class="grp-horizontal-list">
         <li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></li>
-        <li><a href="{% url 'rosetta-pick-file' %}">Rosetta</a></li>
+        <li><a href="{% url 'rosetta-file-list' po_filter='project' %}">Rosetta</a></li>
         <li>{{ rosetta_i18n_lang_name }}</li>
         <li>{{ rosetta_i18n_app|title }}</li>
         <li>{% blocktrans with rosetta_i18n_pofile.percent_translated|floatformat:2 as percent_translated  %}Progress: {{ percent_translated }}%{% endblocktrans %}</li>
@@ -46,7 +46,7 @@
 
 {% block object-tools %}
 <ul class="grp-object-tools">
-    <li><a href="{% url 'rosetta-pick-file' %}" class="focus">{% trans "Pick another file" %}</a></li>
+    <li><a href="{% url 'rosetta-file-list' po_filter='project' %}" class="focus">{% trans "Pick another file" %}</a></li>
         <li><a href="{% url 'rosetta-download-file' %}">{% trans "Download this catalog" %}</a></li>
 </ul>
 {% endblock %}

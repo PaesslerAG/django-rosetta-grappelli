@@ -2,6 +2,9 @@
 Django-Rosetta-Grappelli
 ========================
 
+.. image:: https://travis-ci.org/PaesslerAG/django-rosetta-grappelli.svg?branch=master
+    :target: https://travis-ci.org/PaesslerAG/django-rosetta-grappelli
+
 Compatibility template for rosetta when grappelli is installed
 
 **Note:** As of Jan 2017 a new maintainer took over and a new pip package had to be created for it. The releases
@@ -15,9 +18,10 @@ All credits should go to **Haineault.com** for creating grappelli-fit
 
 Installation
 ============
+Install via pip ``pip install django-rosetta-grappelli2``
 
 Add rosetta-grappelli **before** `rosetta` in your installed apps:
-  ::
+::
 
     INSTALLED_APPS = (
         'grappelli',
@@ -32,6 +36,8 @@ That's it
 
 Release Notes
 =============
+
+* 1.3.0 -  drops support for django-rosetta 0.7.x and below
 
 * 1.2.1 - fix template incompabilities for Django >1.8
 
