@@ -34,9 +34,9 @@ That's it
 Release Notes
 =============
 
-* 1.3 - support current Django versions
+* 1.3.0 -  drops support for django-rosetta 0.7.x and below
 
-  * drops support for django-rosetta 0.7.x and below
+* 1.2.1 - fix template incompabilities for Django >1.8
 
 * 1.2 - support current Django versions
 

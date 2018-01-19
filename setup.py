@@ -10,9 +10,9 @@ setup(
     Compatibility templates for django rosetta when using django-grappelli. Continued
     development from the original but stalled django-rosetta-grappelli project.
     """,
-    author="Martin Bauer",
-    author_email="info@beluga.me",
-    url="https://github.com/belugame/django-rosetta-grappelli",
+    author='Paessler AG',
+    author_email="bis@paessler.com",
+    url="https://github.com/PaesslerAG/django-rosetta-grappelli",
     packages=find_packages(),
     install_requires=[
         'django-rosetta>=0.8.1',

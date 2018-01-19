@@ -1,5 +1,4 @@
 {% extends "rosetta/base.html" %}
-{% load url from future %}
 {% load rosetta i18n %}
 
 {% block title %}{{block.super}} - {{MESSAGES_SOURCE_LANGUAGE_NAME}} - {{rosetta_i18n_lang_name}} ({{ rosetta_i18n_pofile.percent_translated|floatformat:0 }}%){% endblock %}
@@ -143,7 +142,7 @@
                     </thead>
                     <tbody>
                         {% for message in rosetta_messages %}
-                        <tr class="{% cycle row1,row2%}">
+                        <tr class="{% cycle "row1" "row2" %}">
                             {% if message.msgid_plural %}
                             <td class="original plural">
                                 <div class="plural-container">

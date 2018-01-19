@@ -18,9 +18,9 @@ setup(
     version='0.0.0',
     description=readme,
     long_description=readme,
-    author='Martin Bauer',
-    author_email='info@beluga.me',
-    url='https://github.com/belugame/django-rosetta-grappelli',
+    author='Paessler AG',
+    author_email='bis@paessler.com',
+    url='https://github.com/paesslerag/django-rosetta-grappelli',
     packages=[
         'testapp',
     ],
