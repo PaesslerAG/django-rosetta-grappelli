@@ -36,7 +36,7 @@ pip-list:
 	pip freeze | tee $@
 
 avoid-too-many-dependencies: pip-list
-	test $(shell wc -l pip-list | cut -d' ' -f 1) -le 13
+	test $(shell wc -l pip-list | cut -d' ' -f 1) -le 14
 
 lint:
 	flake8 rosetta-grappelli tests --isolated --max-complexity=5
