@@ -1,7 +1,3 @@
-# Django settings for autodata project.
-
-TEMPLATE_STRING_IF_INVALID = '@'*40
-
 DEBUG = True
 
 TEMPLATES = [
@@ -21,7 +17,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'string_if_invalid': TEMPLATE_STRING_IF_INVALID,
+            'string_if_invalid': '@'*40
         },
     },
 ]
