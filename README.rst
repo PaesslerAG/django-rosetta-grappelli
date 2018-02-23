@@ -37,7 +37,9 @@ That's it
 Release Notes
 =============
 
-* 1.3.0 -  drops support for django-rosetta 0.7.x and below
+* 1.3.1 - avoid protocol in url for google js api to avoid warnings about insecure scripts
+
+* 1.3.0 - drops support for django-rosetta 0.7.x and below
 
 * 1.2.1 - fix template incompabilities for Django >1.8
 
