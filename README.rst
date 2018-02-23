@@ -37,7 +37,9 @@ That's it
 Release Notes
 =============
 
-* 1.3.0 -  drops support for django-rosetta 0.7.x and below
+* 1.4.0 - Django 2.0 compability, drop support for Django <1.10
+
+* 1.3.0 - drops support for django-rosetta 0.7.x and below
 
 * 1.2.1 - fix template incompabilities for Django >1.8
 
