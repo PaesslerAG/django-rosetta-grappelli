@@ -37,7 +37,9 @@ That's it
 Release Notes
 =============
 
-* 1.4.0 - Django 2.0 compability, drop support for Django <1.10
+* 1.4.0 - Django 2.0 compability,
+        - Drop support for Django <1.10
+        - Avoid protocol in url for google js api to avoid warnings about insecure scripts
 
 * 1.3.0 - drops support for django-rosetta 0.7.x and below
 
