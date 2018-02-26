@@ -1,5 +1,4 @@
-.PHONY: avoid-too-many-dependencies verify-right-django-version pip-list
-.PHONY: verify-pip-env
+.PHONY: avoid-too-many-dependencies pip-list
 COVERAGE?=0
 COVERAGERCFLAG=--rcfile .coveragerc
 ifeq ($(COVERAGE), 1)
@@ -37,13 +36,7 @@ pip-list:
 	pip freeze | tee $@
 
 avoid-too-many-dependencies: pip-list
-	test $(shell wc -l pip-list | cut -d' ' -f 1) -le 13
-
-verify-right-django-version: EXPECTED_DJANGO_VERSION_COMMAND=echo $$VIRTUAL_ENV | sed "s/^.*django1\([0-9]\+\)$$/Django==1\\\.\1/"
-verify-right-django-version: pip-list
-	 grep $$(${EXPECTED_DJANGO_VERSION_COMMAND}) pip-list
-
-verify-pip-env: avoid-too-many-dependencies verify-right-django-version
+	test $(shell wc -l pip-list | cut -d' ' -f 1) -le 14
 
 lint:
 	flake8 rosetta-grappelli tests --isolated --max-complexity=5

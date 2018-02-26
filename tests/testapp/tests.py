@@ -7,7 +7,8 @@ class RenderingBaseTemplateRegressionTestCase(TestCase):
 
     def test_can_render_the_base_template(self):
         content = self.get_rendered_base_template_with_following_context()
-        self.assertNotIn(settings.TEMPLATE_STRING_IF_INVALID, content)
+        invalid_string = settings.TEMPLATES[0]["OPTIONS"]["string_if_invalid"]
+        self.assertNotIn(invalid_string, content)
 
     def get_rendered_base_template_with_following_context(self, **kwargs):
         url = self.get_url()
