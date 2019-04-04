@@ -1,4 +1,4 @@
-include LICENSE README.rst AUTHORS VERSION
+include LICENSE README.rst AUTHORS
 recursive-include rosetta-grappelli/templates/rosetta *.html
 recursive-include rosetta-grappelli/templates/rosetta/css *.css
 recursive-include rosetta-grappelli/templates/rosetta/js *.js

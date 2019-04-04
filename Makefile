@@ -8,6 +8,7 @@ else
 endif
 GET_VERSION_COMMAND=cat VERSION
 SHELL=/bin/bash
+VERSION=$(shell python -c"import rosetta_grappelli as m; print(m.__version__)")
 
 help:
 	@echo "clean-build - remove build artifacts"
