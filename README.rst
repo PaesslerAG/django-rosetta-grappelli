@@ -20,13 +20,13 @@ Installation
 ============
 Install via pip ``pip install django-rosetta-grappelli2``
 
-Add rosetta-grappelli **before** `rosetta` in your installed apps:
+Add rosetta_grappelli **before** `rosetta` in your installed apps:
 ::
 
     INSTALLED_APPS = (
         'grappelli',
         ...
-        'rosetta-grappelli',
+        'rosetta_grappelli',
         'rosetta',
         ...
     )

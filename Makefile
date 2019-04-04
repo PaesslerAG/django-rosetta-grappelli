@@ -42,7 +42,7 @@ avoid-too-many-dependencies: pip-list
 	test $(shell wc -l pip-list | cut -d' ' -f 1) -le 14
 
 lint:
-	flake8 rosetta-grappelli tests --isolated --max-complexity=5
+	flake8 rosetta_grappelli tests --isolated --max-complexity=5
 
 test:
 	${PYTHON} manage.py test testapp --traceback
@@ -56,7 +56,7 @@ clean-tox:
 	if [[ -d .tox ]]; then rm -r .tox; fi
 
 coverage:
-	coverage run --source rosetta-grappelli setup.py test
+	coverage run --source rosetta_grappelli setup.py test
 	coverage report -m
 	coverage html
 	open htmlcov/index.html
