@@ -6,7 +6,8 @@ ifeq ($(COVERAGE), 1)
 else
 	PYTHON=python
 endif
-GET_VERSION_COMMAND=cat VERSION
+PYPI_SERVER?=pypi
+GIT_REMOTE_NAME?=origin
 SHELL=/bin/bash
 VERSION=$(shell python -c"import rosetta_grappelli as m; print(m.__version__)")
 
@@ -19,6 +20,7 @@ help:
 	@echo "test - run tests quickly with the default Python"
 	@echo "coverage - check code coverage quickly with the default Python"
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
+	@echo "release - git tag the current version which creates a new pypi package with travis-ci's help"
 
 clean: clean-build clean-pyc clean-tox
 
@@ -64,5 +66,16 @@ docs:
 	rst2html.py README.rst > /dev/null 2> ${outfile}
 	cat ${outfile}
 	test 0 -eq `cat ${outfile} | wc -l`
-	${GET_VERSION_COMMAND}  # can obtain version number - if not, have an explicit error
-	grep "^[*] $(shell ${GET_VERSION_COMMAND} | sed "s/-[^.-]\+$$//")\>" README.rst  # ensure we have written the release notes
+	${VERSION}  # can obtain version number - if not, have an explicit error
+	grep "^[*] $(shell ${VERSION} | sed "s/-[^.-]\+$$//")\>" README.rst  # ensure we have written the release notes
+
+pre-deploy: clean docs
+
+release: TAG:=v${VERSION}
+release: exit_code=$(shell git ls-remote ${GIT_REMOTE_NAME} | grep -q tags/${TAG}; echo $$?)
+release:
+ifeq ($(exit_code),0)
+	@echo "Tag ${TAG} already present"
+else
+	git tag -a ${TAG} -m"${TAG}"; git push --tags ${GIT_REMOTE_NAME}
+endif
