@@ -6,8 +6,10 @@ ifeq ($(COVERAGE), 1)
 else
 	PYTHON=python
 endif
-GET_VERSION_COMMAND=cat VERSION
+PYPI_SERVER?=pypi
+GIT_REMOTE_NAME?=origin
 SHELL=/bin/bash
+VERSION=$(shell python -c"import rosetta_grappelli as m; print(m.__version__)")
 
 help:
 	@echo "clean-build - remove build artifacts"
@@ -18,6 +20,7 @@ help:
 	@echo "test - run tests quickly with the default Python"
 	@echo "coverage - check code coverage quickly with the default Python"
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
+	@echo "release - git tag the current version which creates a new pypi package with travis-ci's help"
 
 clean: clean-build clean-pyc clean-tox
 
@@ -39,7 +42,7 @@ avoid-too-many-dependencies: pip-list
 	test $(shell wc -l pip-list | cut -d' ' -f 1) -le 14
 
 lint:
-	flake8 rosetta-grappelli tests --isolated --max-complexity=5
+	flake8 rosetta_grappelli tests --isolated --max-complexity=5
 
 test:
 	${PYTHON} manage.py test testapp --traceback
@@ -53,7 +56,7 @@ clean-tox:
 	if [[ -d .tox ]]; then rm -r .tox; fi
 
 coverage:
-	coverage run --source rosetta-grappelli setup.py test
+	coverage run --source rosetta_grappelli setup.py test
 	coverage report -m
 	coverage html
 	open htmlcov/index.html
@@ -63,5 +66,16 @@ docs:
 	rst2html.py README.rst > /dev/null 2> ${outfile}
 	cat ${outfile}
 	test 0 -eq `cat ${outfile} | wc -l`
-	${GET_VERSION_COMMAND}  # can obtain version number - if not, have an explicit error
-	grep "^[*] $(shell ${GET_VERSION_COMMAND} | sed "s/-[^.-]\+$$//")\>" README.rst  # ensure we have written the release notes
+	${VERSION}  # can obtain version number - if not, have an explicit error
+	grep "^[*] $(shell ${VERSION} | sed "s/-[^.-]\+$$//")\>" README.rst  # ensure we have written the release notes
+
+pre-deploy: clean docs
+
+release: TAG:=v${VERSION}
+release: exit_code=$(shell git ls-remote ${GIT_REMOTE_NAME} | grep -q tags/${TAG}; echo $$?)
+release:
+ifeq ($(exit_code),0)
+	@echo "Tag ${TAG} already present"
+else
+	git tag -a ${TAG} -m"${TAG}"; git push --tags ${GIT_REMOTE_NAME}
+endif

@@ -1,7 +1,7 @@
 [run]
 parallel = True
 source =
-    rosetta-grappelli
+    rosetta_grappelli
 
 [report]
 fail_under = 100
